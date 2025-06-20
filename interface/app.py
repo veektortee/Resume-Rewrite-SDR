@@ -1,6 +1,5 @@
 import streamlit as st
 import sys
-import PyPDF2
 import docx
 import pdfplumber
 import tempfile
