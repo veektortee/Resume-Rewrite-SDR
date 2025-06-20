@@ -1,0 +1,11 @@
+streamlit
+pandas
+faiss-cpu
+sentence-transformers
+openai
+python-docx
+dotenv
+pdfplumber
+markupsafe
+python-docx
+pdfplumber
