@@ -41,6 +41,10 @@ Reference the examples below to understand how to rewrite resumes effectively. U
 --- ✅ Rewritten SDR Resume ---
 """
 
+def get_model():
+    Model = "gpt-4o"
+    return Model
+
 def rewrite_resume(new_raw_resume, k=3):
     index = load_index()
     records = load_records()
@@ -52,7 +56,7 @@ def rewrite_resume(new_raw_resume, k=3):
     prompt = build_prompt(new_raw_resume, retrieved_chunks)
 
     response = client.chat.completions.create(
-        model="gpt-4.1-mini",
+        model=get_model(),
         messages=[{"role": "system", "content": "You are a resume rewriting assistant that strictly follows formatting instructions to produce structured SDR resumes."},
                   {"role": "user", "content": prompt}],
         temperature=0.3
