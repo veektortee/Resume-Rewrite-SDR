@@ -10,7 +10,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
-from retriever.rag_rewriter import rewrite_resume
+from retriever.rag_rewriter import rewrite_resume, get_model
 
 st.set_page_config(page_title="SDR Resume Rewriter", layout="wide")
 st.title("🔁 SDRPolish")
@@ -66,7 +66,7 @@ if st.checkbox("🔍 Preview extracted resume text"):
 
 # --- Submit and Rewrite ---
 if input_text and st.button("🔁 Rewrite Resume"):
-    with st.spinner("Rewriting with GPT..."):
+    with st.spinner(f"Rewriting with {get_model()}..."):
         result = rewrite_resume(input_text)
     st.subheader("✅ Rewritten Resume")
     st.text_area("Result", result, height=300)
